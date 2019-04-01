@@ -15,9 +15,12 @@ import pl.b2b.testfactory.annotations.TestFactoryMethod;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestFactorySteps extends BaseTF {
     private TravelOptionActions travelOptionMethods;
+    List<String> logList = new ArrayList<>();
 
     @BeforeMethod
     public void setUp() {
@@ -37,10 +40,6 @@ public class TestFactorySteps extends BaseTF {
 //    @Parameters({"direction", "destination", "dateOfDeparture", "dateOfReturn", "numberOfAdults", "numberOfChildren", "standardProtection", "fullComfort", "prestigiousJourney"})
     public void yourJourneyTest(String direction, String destination, String dateOfDeparture, String dateOfReturn, String numberOfAdults,
                                 String numberOfChildren, String standardProtection, String fullComfort, String prestigiousJourney) throws AWTException {
-        TestFactoryUtils.log("standardProtection: "+standardProtection);
-        TestFactoryUtils.log("fullComfort: "+fullComfort);
-        TestFactoryUtils.log("prestigiousJourney: "+prestigiousJourney);
-
         travelOptionMethods.navigateToUrl();
         travelOptionMethods.selectDirection(direction);
         travelOptionMethods.selectPurpose(destination);
@@ -48,7 +47,11 @@ public class TestFactorySteps extends BaseTF {
         travelOptionMethods.numberOfTravelers(numberOfAdults, numberOfChildren);
         travelOptionMethods.clickNextButton();
 
-        TestFactoryUtils.log("Parametry testu: Kierunek: "+direction);
+        logList.add(direction);
+        logList.add(destination);
+        logList.add(dateOfReturn);
+        logList.add(numberOfAdults);
+        TestFactoryUtils.log("Parametry testu: Kierunek: "+logList);
 
 
         Boolean status = travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney );
