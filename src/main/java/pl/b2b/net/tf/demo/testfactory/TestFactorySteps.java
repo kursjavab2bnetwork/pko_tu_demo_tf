@@ -48,7 +48,7 @@ public class TestFactorySteps extends BaseTF {
         travelOptionMethods.numberOfTravelers(numberOfAdults, numberOfChildren);
         travelOptionMethods.clickNextButton();
 
-        String line = direction+","+destination+","+dateOfDeparture+","+dateOfReturn+","+numberOfAdults+","+numberOfChildren+","+standardProtection+","+fullComfort+","+prestigiousJourney;
+        String line = "\r\n"+direction+","+destination+","+dateOfDeparture+","+dateOfReturn+","+numberOfAdults+","+numberOfChildren+","+standardProtection+","+fullComfort+","+prestigiousJourney;
 
 //        resultList.add(direction);
 //        resultList.add(destination);
@@ -64,13 +64,13 @@ public class TestFactorySteps extends BaseTF {
         Assert.assertTrue(status,"Podane kwoty nie zgadzają się");
 
         if(status){
-            line = line+",Pozytywny\r\n";
+            line = line+",Pozytywny";
         }else{
-            line = line+",Negatywny\r\n";
+            line = line+",Negatywny";
         }
         resultList.add(line);
   //      logList.add(resultList);
-        TestFactoryUtils.log("\r\n"+resultList);
+        TestFactoryUtils.log(""+resultList);
 //        resultList = new ArrayList<>();
 
 
