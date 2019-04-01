@@ -36,7 +36,7 @@ public class TravelOptionActions extends TravelOptionObject {
                 click(destinationWorld);
                 break;
         }
-        checkIfSuccess(1);
+        checkIfSuccess(1,"Kierunek podróży nie został wybrany.");
     }
 
     public void selectPurpose(String purpose) {
@@ -57,13 +57,13 @@ public class TravelOptionActions extends TravelOptionObject {
                 click(purposePhysicalWork);
                 break;
         }
-        checkIfSuccess(2);
+        checkIfSuccess(2,"Cel podróży nie został wybrany");
     }
 
     public void typeDates(String dateOfDeparture, String dateOfReturn) throws AWTException {
         typeDateRobot(startDate, dateOfDeparture);
         typeDateRobot(endDate, dateOfReturn);
-        checkIfSuccess(3);
+        checkIfSuccess(3,"Termin wyjazdu nie został wprowadzony ");
     }
 
 //    public void selectDatesFromDataPicker(String dateOfDeparture, String dateOfReturn){
@@ -95,20 +95,20 @@ public class TravelOptionActions extends TravelOptionObject {
 
         if (numberOfAdults.equals("1") && numberOfChildren.equals("0")) {
             click(travelers1person);
-            checkIfSuccess(5);
+            checkIfSuccess(5,"Liczba podróżujących nie została wybrana");
         } else {
             click(travelMorePeople);
             type(numberOfAdultField, Keys.BACK_SPACE);
             type(numberOfAdultField, numberOfAdults);
             type(numberOfChildrenField, Keys.BACK_SPACE);
             type(numberOfChildrenField, numberOfChildren);
-            checkIfSuccess(6);
+            checkIfSuccess(6,"Liczba podróżujących nie została wybrana");
         }
     }
 
-    private void checkIfSuccess(int expectedNumber){
+    private void checkIfSuccess(int expectedNumber, String komunikat){
         int locatorElementSize = driver.findElements(By.cssSelector(TravelOptionObject.SUCCESS_CSS)).size();
-        Assert.assertEquals(locatorElementSize,expectedNumber);
+        Assert.assertEquals(locatorElementSize,expectedNumber,komunikat);
     }
 
     public String getPriceInStandardProtection() {
