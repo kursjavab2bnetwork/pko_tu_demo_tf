@@ -20,7 +20,7 @@ public class TransactionTest {
 //        BaseTF.tearDown();
 //    }
 
-
+//
 //    @DataProvider(name = "TestData")
 //    public Object[][] getData() throws IOException {
 //        DataLoader dataLoader = new DataLoader();
@@ -28,11 +28,17 @@ public class TransactionTest {
 //        return tab;
 //    }
 //
+//    @DataProvider(name = "TestData2")
+//    public static Object[][] inputData() {
+//        return new Object[][] { { "Europa", "Wypoczynek", "20190405", "20190411", "1", "0", "31,36", "53,90", "91,14" },
+//                { "Europa", "Narciarstwo", "20190405", "20190411", "1", "0", "82,96", "142,35", "246,20" }};
+//    }
+//
 //    @BeforeClass
 //    public void transactionTestDataProviderStart() throws Throwable {
 //        BaseTF.setUp("FF");
 //    }
-//    @Test(dataProvider = "TestData")
+//    @Test(dataProvider = "TestData2")
 //    @Parameters({"direction", "destination", "dateOfDeparture", "dateOfReturn", "numberOfAdults", "numberOfChildren", "standardProtection", "fullComfort", "prestigiousJourney"})
 //    public void transactionTestDataProvider(String direction, String destination, String dateOfDeparture, String dateOfReturn, String numberOfAdults,
 //                                            String numberOfChildren, String standardProtection, String fullComfort, String prestigiousJourney) throws Throwable {
