@@ -111,18 +111,31 @@ public class TravelOptionActions extends TravelOptionObject {
         Assert.assertEquals(locatorElementSize,expectedNumber,komunikat);
     }
 
-    public String getPriceInStandardProtection() {
+    private String getPriceInStandardProtection() {
         waitForWebElement(standardProtection);
         return standardProtection.getText();
     }
 
-    public String getPriceInFullComfort() {
+    private String getPriceInFullComfort() {
         waitForWebElement(fullComfort);
         return fullComfort.getText();
     }
 
-    public String getPriceInPrestigiusJourney() {
+    private String getPriceInPrestigiusJourney() {
         waitForWebElement(standardProtection);
         return prestigiousJourney.getText();
+    }
+
+    public boolean checkAllPrices(String standardProtection, String fullComfort, String prestigiousJourney) {
+        String standard = getPriceInStandardProtection();
+        String comfort = getPriceInFullComfort();
+        String prestigius = getPriceInPrestigiusJourney();
+
+        if (standard.equals(standardProtection)&& comfort.equals(fullComfort) && prestigius.equals(prestigiousJourney)) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }
