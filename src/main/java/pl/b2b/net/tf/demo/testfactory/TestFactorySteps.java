@@ -48,26 +48,27 @@ public class TestFactorySteps extends BaseTF {
         travelOptionMethods.numberOfTravelers(numberOfAdults, numberOfChildren);
         travelOptionMethods.clickNextButton();
 
+        String line = direction+","+destination+","+dateOfDeparture+","+dateOfReturn+","+numberOfAdults+","+numberOfChildren+","+standardProtection+","+fullComfort+","+prestigiousJourney;
 
-        resultList.add(direction);
-        resultList.add(destination);
-        resultList.add(dateOfDeparture);
-        resultList.add(dateOfReturn);
-        resultList.add(numberOfAdults);
-        resultList.add(numberOfChildren);
-        resultList.add(standardProtection);
-        resultList.add(fullComfort);
-        resultList.add(prestigiousJourney);
+//        resultList.add(direction);
+//        resultList.add(destination);
+//        resultList.add(dateOfDeparture);
+//        resultList.add(dateOfReturn);
+//        resultList.add(numberOfAdults);
+//        resultList.add(numberOfChildren);
+//        resultList.add(standardProtection);
+//        resultList.add(fullComfort);
+//        resultList.add(prestigiousJourney);
 
         Boolean status = travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney );
         Assert.assertTrue(status,"Podane kwoty nie zgadzają się");
 
         if(status){
-            resultList.add("Pozytywny\r\n");
+            line = line+",Pozytywny\r\n";
         }else{
-            resultList.add("Negatywny\r\n");
+            line = line+",Negatywny\r\n";
         }
-
+        resultList.add(line);
   //      logList.add(resultList);
         TestFactoryUtils.log("\r\n"+resultList);
 //        resultList = new ArrayList<>();
