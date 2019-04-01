@@ -31,25 +31,25 @@ public class TestFactorySteps extends BaseTF {
         return tab;
     }
 
-    @Test
-    @TestFactoryMethod(value = "Demo test - porównanie parametrów", description = "Wykonanie zadania próbnego PoC", group = "demo")
-    @Parameters({"direction", "destination", "dateOfDeparture", "dateOfReturn", "numberOfAdults", "numberOfChildren", "standardProtection", "fullComfort", "prestigiousJourney"})
-    public void yourJourneyTest(String direction, String destination, String dateOfDeparture, String dateOfReturn, String numberOfAdults,
-                                String numberOfChildren, String standardProtection, String fullComfort, String prestigiousJourney) throws AWTException {
-
-        travelOptionMethods.navigateToUrl();
-        travelOptionMethods.selectDirection(direction);
-        travelOptionMethods.selectPurpose(destination);
-        travelOptionMethods.typeDates(dateOfDeparture, dateOfReturn);
-        travelOptionMethods.numberOfTravelers(numberOfAdults, numberOfChildren);
-        travelOptionMethods.clickNextButton();
-        Assert.assertEquals(standardProtection,travelOptionMethods.getPriceInStandardProtection());
-        Assert.assertEquals(fullComfort,travelOptionMethods.getPriceInFullComfort());
-        Assert.assertEquals(prestigiousJourney,travelOptionMethods.getPriceInPrestigiusJourney());
-
-//        WebDriverCfg.getWebDriverInstance().get(CfgTest.websiteAddress);
-//        Assert.assertNotNull(WebDriverCfg.getWebDriverInstance().getCurrentUrl());
-    }
+//    @Test
+//    @TestFactoryMethod(value = "Demo test - porównanie parametrów", description = "Wykonanie zadania próbnego PoC", group = "demo")
+//    @Parameters({"direction", "destination", "dateOfDeparture", "dateOfReturn", "numberOfAdults", "numberOfChildren", "standardProtection", "fullComfort", "prestigiousJourney"})
+//    public void yourJourneyTest(String direction, String destination, String dateOfDeparture, String dateOfReturn, String numberOfAdults,
+//                                String numberOfChildren, String standardProtection, String fullComfort, String prestigiousJourney) throws AWTException {
+//
+//        travelOptionMethods.navigateToUrl();
+//        travelOptionMethods.selectDirection(direction);
+//        travelOptionMethods.selectPurpose(destination);
+//        travelOptionMethods.typeDates(dateOfDeparture, dateOfReturn);
+//        travelOptionMethods.numberOfTravelers(numberOfAdults, numberOfChildren);
+//        travelOptionMethods.clickNextButton();
+//        Assert.assertEquals(standardProtection,travelOptionMethods.getPriceInStandardProtection());
+//        Assert.assertEquals(fullComfort,travelOptionMethods.getPriceInFullComfort());
+//        Assert.assertEquals(prestigiousJourney,travelOptionMethods.getPriceInPrestigiusJourney());
+//
+////        WebDriverCfg.getWebDriverInstance().get(CfgTest.websiteAddress);
+////        Assert.assertNotNull(WebDriverCfg.getWebDriverInstance().getCurrentUrl());
+//    }
 
     @Test(dataProvider = "TestData")
     @TestFactoryMethod(value = "Demo - weryfikacja stawek ubezpieczenia", description = "Wykonanie zadania próbnego PoC. DataProvider", group = "demo")
