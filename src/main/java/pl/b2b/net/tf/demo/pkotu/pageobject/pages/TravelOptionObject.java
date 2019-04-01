@@ -23,7 +23,11 @@ public class TravelOptionObject extends AbstractPageObject{
     protected static final String PHYSICAL_WORK_XPATH =  "//span[contains(@class, 'custom-radio-label') and text() = 'Praca fizyczna']";
 
     protected static final String DATE_START_ID = "id-tripCover-startDate-0-1";
+    protected static final String DATE_START_TABLE = "table-condensed";
     protected static final String DATE_END_ID = "id-tripCover-endDate-0-1";
+    protected static final String DATE_END_TABLE = "table-condensed";
+    protected static final String DATE_SAVE = "applyBtn btn btn-sm btn-primary";
+
 
     protected static final String TRAVELLERS_ONE_PERSON_XPATH = "//span[contains(@class, 'custom-radio-label') and text() = '1 osoba']";
 

@@ -4,13 +4,13 @@
     <parameter name="excelPath" value="src\\main\\resources\\skladkaTDmz1.xls"/>
 
 
-    <!--<test name="Uruchomienie srodowiska testowego">-->
-        <!--<classes>-->
-            <!--<class name="pl.b2b.tf.demo.TransactionTest">-->
-                <!--<methods>-->
-                    <!--<include name="transactionTest1"/>-->
-                <!--</methods>-->
-            <!--</class>-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="Uruchomienie srodowiska testowego">
+        <classes>
+            <class name="pl.b2b.tf.demo.TransactionTest">
+                <methods>
+                    <include name="transactionTestDataProvider"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>

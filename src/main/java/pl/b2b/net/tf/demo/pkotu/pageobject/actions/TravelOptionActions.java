@@ -3,10 +3,12 @@ package pl.b2b.net.tf.demo.pkotu.pageobject.actions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import pl.b2b.net.tf.demo.pkotu.pageobject.pages.TravelOptionObject;
 import static pl.b2b.net.tf.demo.GlobalDefinitions.PKO_TU_URL;
 import java.awt.*;
+import java.util.List;
 
 public class TravelOptionActions extends TravelOptionObject {
     public TravelOptionActions(WebDriver driver){
@@ -63,6 +65,27 @@ public class TravelOptionActions extends TravelOptionObject {
         typeDateRobot(endDate, dateOfReturn);
         checkIfSuccess(3);
     }
+
+//    public void selectDatesFromDataPicker(String dateOfDeparture, String dateOfReturn){
+//        selectStartDateFromDataPicker(dateOfDeparture);
+//    }
+//
+//    private void selectStartDateFromDataPicker(String dayNumber){
+//        click(startDate);
+//        List<WebElement> columns = startDatePicker.findElements(By.tagName("td"));
+//
+//        for (WebElement cell: columns) {
+//
+//            if (cell.getText().equals(dayNumber)) {
+//                cell.findElement(By.linkText(dayNumber)).click();
+//                break;
+//            }
+//        click(startDateSave);
+//}
+//
+//
+//
+//    }
 
     public void clickNextButton() {
         click(nextButton);
