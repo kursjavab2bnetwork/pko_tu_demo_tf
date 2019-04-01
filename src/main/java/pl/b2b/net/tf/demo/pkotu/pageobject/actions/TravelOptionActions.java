@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import pl.b2b.net.tf.demo.pkotu.pageobject.pages.TravelOptionObject;
+import pl.b2b.testfactory.TestFactoryUtils;
+
 import static pl.b2b.net.tf.demo.GlobalDefinitions.PKO_TU_URL;
 import java.awt.*;
 import java.util.List;
@@ -127,10 +129,17 @@ public class TravelOptionActions extends TravelOptionObject {
     }
 
     public Boolean checkAllPrices(String standardProtection, String fullComfort, String prestigiousJourney) {
+        TestFactoryUtils.log("standardProtection: "+standardProtection);
+        TestFactoryUtils.log("fullComfort: "+fullComfort);
+        TestFactoryUtils.log("prestigiousJourney: "+prestigiousJourney);
+
         String standard = getPriceInStandardProtection().replace(".", "");
         String comfort = getPriceInFullComfort().replace(".", "");
         String prestigius = getPriceInPrestigiusJourney().replace(".", "");
 
+        TestFactoryUtils.log("standard: "+standard);
+        TestFactoryUtils.log("comfort: "+comfort);
+        TestFactoryUtils.log("prestigius: "+prestigius);
 
         standardProtection = standardProtection.replace(",", "");
         fullComfort = fullComfort.replace(",", "");

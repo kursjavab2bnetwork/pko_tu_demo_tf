@@ -58,8 +58,8 @@ public class TestFactorySteps extends BaseTF {
         travelOptionMethods.clickNextButton();
 
         TestFactoryUtils.log("Parametry testu: Kierunek: "+direction);
-        TestFactoryUtils.addOutputData("Parametry testu: Cel: "+destination," Jest ok");
-        
+
+
         Boolean status = travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney );
         Assert.assertTrue(status,"Podane kwoty nie zgadzają się");
 
