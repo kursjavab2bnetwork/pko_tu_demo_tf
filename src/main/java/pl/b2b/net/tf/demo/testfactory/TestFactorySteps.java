@@ -25,18 +25,6 @@ public class TestFactorySteps extends BaseTF {
         travelOptionMethods = new TravelOptionActions(driver);
     }
 
-//        @DataProvider(name = "TestData")
-//    public Object[][] getData() throws IOException {
-//        DataLoader dataLoader = new DataLoader();
-//        Object[][] tab = dataLoader.read(GlobalDefinitions.EXCEL_FILE_PATH);
-//        return tab;
-//    }
-//
-//    @Test(dataProvider = "TestData")
-//    @TestFactoryMethod(value = "Demo test - porównanie parametrów", description = "Wykonanie zadania próbnego PoC", group = "demo")
-//    public void test(String destination){
-//        System.out.println("dest "+destination);
-//    }
     @DataProvider(name = "TestData")
     public Object[][] getData() throws IOException {
         DataLoader dataLoader = new DataLoader();

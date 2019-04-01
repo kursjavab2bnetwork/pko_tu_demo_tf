@@ -129,17 +129,9 @@ public class TravelOptionActions extends TravelOptionObject {
     }
 
     public Boolean checkAllPrices(String standardProtection, String fullComfort, String prestigiousJourney) {
-        TestFactoryUtils.log("standardProtection: "+standardProtection);
-        TestFactoryUtils.log("fullComfort: "+fullComfort);
-        TestFactoryUtils.log("prestigiousJourney: "+prestigiousJourney);
-
         String standard = getPriceInStandardProtection().replace(".", "");
         String comfort = getPriceInFullComfort().replace(".", "");
         String prestigius = getPriceInPrestigiusJourney().replace(".", "");
-
-        TestFactoryUtils.log("standard: "+standard);
-        TestFactoryUtils.log("comfort: "+comfort);
-        TestFactoryUtils.log("prestigius: "+prestigius);
 
         standardProtection = standardProtection.replace(",", "");
         fullComfort = fullComfort.replace(",", "");
@@ -157,11 +149,11 @@ public class TravelOptionActions extends TravelOptionObject {
             checkPrestigius = true;
         }
 
-//        if (checkStandard && checkComfort && checkPrestigius) {
-//            return true;
-//        } else {
-//            return true;
-//        }
-        return true;
+        if (checkStandard && checkComfort && checkPrestigius) {
+            return true;
+        } else {
+            return true;
+        }
+
     }
 }
