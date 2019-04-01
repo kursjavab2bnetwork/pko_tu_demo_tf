@@ -20,7 +20,7 @@ import java.util.List;
 
 public class TestFactorySteps extends BaseTF {
     private TravelOptionActions travelOptionMethods;
-    List<List<String>> logList = new ArrayList<>();
+//    List<List<String>> logList = new ArrayList<>();
     List<String> resultList = new ArrayList<>();
 
     @BeforeMethod
@@ -68,12 +68,9 @@ public class TestFactorySteps extends BaseTF {
             resultList.add("Negatywny\r\n");
         }
 
-        logList.add(resultList);
+  //      logList.add(resultList);
+        TestFactoryUtils.log("\r\n"+resultList);
         resultList = new ArrayList<>();
-
-
-        TestFactoryUtils.log(""+logList);
-
 
 
 
