@@ -20,7 +20,7 @@ import java.util.List;
 
 public class TestFactorySteps extends BaseTF {
     private TravelOptionActions travelOptionMethods;
-//    List<List<String>> logList = new ArrayList<>();
+
     List<String> resultList = new ArrayList<>();
 
     @BeforeMethod
@@ -38,7 +38,6 @@ public class TestFactorySteps extends BaseTF {
 
     @Test(dataProvider = "TestData")
     @TestFactoryMethod(value = "Demo - weryfikacja stawek ubezpieczenia", description = "Wykonanie zadania próbnego PoC", group = "demo")
-//    @Parameters({"direction", "destination", "dateOfDeparture", "dateOfReturn", "numberOfAdults", "numberOfChildren", "standardProtection", "fullComfort", "prestigiousJourney"})
     public void yourJourneyTest(String direction, String destination, String dateOfDeparture, String dateOfReturn, String numberOfAdults,
                                 String numberOfChildren, String standardProtection, String fullComfort, String prestigiousJourney) throws AWTException {
         travelOptionMethods.navigateToUrl();
@@ -48,39 +47,23 @@ public class TestFactorySteps extends BaseTF {
         travelOptionMethods.numberOfTravelers(numberOfAdults, numberOfChildren);
         travelOptionMethods.clickNextButton();
 
-        String line = "\r\n"+direction+","+destination+","+dateOfDeparture+","+dateOfReturn+","+numberOfAdults+","+numberOfChildren+","+standardProtection+","+fullComfort+","+prestigiousJourney;
-
-//        resultList.add(direction);
-//        resultList.add(destination);
-//        resultList.add(dateOfDeparture);
-//        resultList.add(dateOfReturn);
-//        resultList.add(numberOfAdults);
-//        resultList.add(numberOfChildren);
-//        resultList.add(standardProtection);
-//        resultList.add(fullComfort);
-//        resultList.add(prestigiousJourney);
+        String line = "\r\n"+direction+";"+destination+";"+dateOfDeparture+";"+dateOfReturn+";"+numberOfAdults+";"+numberOfChildren+";"+standardProtection+";"+fullComfort+";"+prestigiousJourney;
 
         Boolean status = travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney );
         Assert.assertTrue(status,"Podane kwoty nie zgadzają się");
 
         if(status){
-            line = line+",Pozytywny";
+            line = line+";Pozytywny";
         }else{
-            line = line+",Negatywny";
+            line = line+";Negatywny";
         }
         resultList.add(line);
-  //      logList.add(resultList);
+
         TestFactoryUtils.log(""+resultList);
-//        resultList = new ArrayList<>();
-
-
 
 //        Assert.assertEquals(standardProtection,travelOptionMethods.getPriceInStandardProtection(),"Kwota dla wariantu: 'Standardowa ochrona' nie zgadza się.");
 //        Assert.assertEquals(fullComfort,travelOptionMethods.getPriceInFullComfort(),"Kwota dla wariantu: 'Pełny komfort' nie zgadza się.");
 //        Assert.assertEquals(prestigiousJourney,travelOptionMethods.getPriceInPrestigiusJourney(),"Kwota dla wariantu: 'Prestiżowa podróż' nie zgadza się.");
-
-//        WebDriverCfg.getWebDriverInstance().get(CfgTest.websiteAddress);
-//        Assert.assertNotNull(WebDriverCfg.getWebDriverInstance().getCurrentUrl());
     }
 
 
