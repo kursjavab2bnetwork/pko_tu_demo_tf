@@ -63,9 +63,9 @@ public class TestFactorySteps extends BaseTF {
         Assert.assertTrue(status,"Podane kwoty nie zgadzają się");
 
         if(status){
-            resultList.add("Pozytywny");
+            resultList.add("Pozytywny\r\n");
         }else{
-            resultList.add("Negatywny");
+            resultList.add("Negatywny\r\n");
         }
 
         logList.add(resultList);
