@@ -20,7 +20,8 @@ import java.util.List;
 
 public class TestFactorySteps extends BaseTF {
     private TravelOptionActions travelOptionMethods;
-    List<String> logList = new ArrayList<>();
+    List<List<String>> logList = new ArrayList<>();
+    List<String> resultList = new ArrayList<>();
 
     @BeforeMethod
     public void setUp() {
@@ -47,15 +48,32 @@ public class TestFactorySteps extends BaseTF {
         travelOptionMethods.numberOfTravelers(numberOfAdults, numberOfChildren);
         travelOptionMethods.clickNextButton();
 
-        logList.add(direction);
-        logList.add(destination);
-        logList.add(dateOfReturn);
-        logList.add(numberOfAdults);
-        TestFactoryUtils.log("Parametry testu: Kierunek: "+logList);
 
+        resultList.add(direction);
+        resultList.add(destination);
+        resultList.add(dateOfDeparture);
+        resultList.add(dateOfReturn);
+        resultList.add(numberOfAdults);
+        resultList.add(numberOfChildren);
+        resultList.add(standardProtection);
+        resultList.add(fullComfort);
+        resultList.add(prestigiousJourney);
 
         Boolean status = travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney );
         Assert.assertTrue(status,"Podane kwoty nie zgadzają się");
+
+        if(status){
+            resultList.add("Pozytywny");
+        }else{
+            resultList.add("Negatywny");
+        }
+
+        logList.add(resultList);
+        resultList = new ArrayList<>();
+
+
+        TestFactoryUtils.log(""+logList);
+
 
 
 
