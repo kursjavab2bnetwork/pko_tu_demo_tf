@@ -126,7 +126,7 @@ public class TravelOptionActions extends TravelOptionObject {
         return prestigiousJourney.getText();
     }
 
-    public boolean checkAllPrices(String standardProtection, String fullComfort, String prestigiousJourney) {
+    public Boolean checkAllPrices(String standardProtection, String fullComfort, String prestigiousJourney) {
         String standard = getPriceInStandardProtection().replace(".", "");
         String comfort = getPriceInFullComfort().replace(".", "");
         String prestigius = getPriceInPrestigiusJourney().replace(".", "");
