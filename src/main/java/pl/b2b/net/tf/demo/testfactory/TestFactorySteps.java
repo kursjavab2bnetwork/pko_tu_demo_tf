@@ -49,6 +49,9 @@ public class TestFactorySteps extends BaseTF {
 //    @Parameters({"direction", "destination", "dateOfDeparture", "dateOfReturn", "numberOfAdults", "numberOfChildren", "standardProtection", "fullComfort", "prestigiousJourney"})
     public void yourJourneyTest(String direction, String destination, String dateOfDeparture, String dateOfReturn, String numberOfAdults,
                                 String numberOfChildren, String standardProtection, String fullComfort, String prestigiousJourney) throws AWTException {
+        TestFactoryUtils.log("standardProtection: "+standardProtection);
+        TestFactoryUtils.log("fullComfort: "+fullComfort);
+        TestFactoryUtils.log("prestigiousJourney: "+prestigiousJourney);
 
         travelOptionMethods.navigateToUrl();
         travelOptionMethods.selectDirection(direction);
