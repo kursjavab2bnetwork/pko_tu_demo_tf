@@ -70,7 +70,7 @@ public class TestFactorySteps extends BaseTF {
 
   //      logList.add(resultList);
         TestFactoryUtils.log("\r\n"+resultList);
-        resultList = new ArrayList<>();
+//        resultList = new ArrayList<>();
 
 
 
