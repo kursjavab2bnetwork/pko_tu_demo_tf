@@ -111,17 +111,17 @@ public class TravelOptionActions extends TravelOptionObject {
         Assert.assertEquals(locatorElementSize,expectedNumber,komunikat);
     }
 
-    private String getPriceInStandardProtection() {
+    public String getPriceInStandardProtection() {
         waitForWebElement(standardProtection);
         return standardProtection.getText();
     }
 
-    private String getPriceInFullComfort() {
+    public String getPriceInFullComfort() {
         waitForWebElement(fullComfort);
         return fullComfort.getText();
     }
 
-    private String getPriceInPrestigiusJourney() {
+    public String getPriceInPrestigiusJourney() {
         waitForWebElement(standardProtection);
         return prestigiousJourney.getText();
     }

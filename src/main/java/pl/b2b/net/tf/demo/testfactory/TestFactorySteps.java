@@ -57,14 +57,14 @@ public class TestFactorySteps extends BaseTF {
         travelOptionMethods.numberOfTravelers(numberOfAdults, numberOfChildren);
         travelOptionMethods.clickNextButton();
 
-        Assert.assertEquals(travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney ), true, "Podane ceny nie zgdadzją się");
+//        Assert.assertEquals(travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney ), true, "Podane ceny nie zgdadzją się");
 
 //        TestFactoryUtils.log("Parametry testu: Kierunek: "+direction);
 //        TestFactoryUtils.addOutputData("Parametry testu: Cel: "+destination," Jest ok");
 
-//        Assert.assertEquals(standardProtection,travelOptionMethods.getPriceInStandardProtection(),"Kwota dla wariantu: 'Standardowa ochrona' nie zgadza się.");
-//        Assert.assertEquals(fullComfort,travelOptionMethods.getPriceInFullComfort(),"Kwota dla wariantu: 'Pełny komfort' nie zgadza się.");
-//        Assert.assertEquals(prestigiousJourney,travelOptionMethods.getPriceInPrestigiusJourney(),"Kwota dla wariantu: 'Prestiżowa podróż' nie zgadza się.");
+        Assert.assertEquals(standardProtection,travelOptionMethods.getPriceInStandardProtection(),"Kwota dla wariantu: 'Standardowa ochrona' nie zgadza się.");
+        Assert.assertEquals(fullComfort,travelOptionMethods.getPriceInFullComfort(),"Kwota dla wariantu: 'Pełny komfort' nie zgadza się.");
+        Assert.assertEquals(prestigiousJourney,travelOptionMethods.getPriceInPrestigiusJourney(),"Kwota dla wariantu: 'Prestiżowa podróż' nie zgadza się.");
 
 //        WebDriverCfg.getWebDriverInstance().get(CfgTest.websiteAddress);
 //        Assert.assertNotNull(WebDriverCfg.getWebDriverInstance().getCurrentUrl());
