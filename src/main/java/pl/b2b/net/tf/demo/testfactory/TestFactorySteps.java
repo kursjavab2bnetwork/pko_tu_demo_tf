@@ -10,6 +10,7 @@ import pl.b2b.net.tf.demo.GlobalDefinitions;
 import pl.b2b.net.tf.demo.driver.DriverSetup;
 import pl.b2b.net.tf.demo.pkotu.pageobject.actions.TravelOptionActions;
 import pl.b2b.net.tf.demo.utils.DataLoader;
+import pl.b2b.testfactory.TestFactoryUtils;
 import pl.b2b.testfactory.annotations.TestFactoryMethod;
 
 import java.awt.*;
@@ -56,7 +57,10 @@ public class TestFactorySteps extends BaseTF {
         travelOptionMethods.numberOfTravelers(numberOfAdults, numberOfChildren);
         travelOptionMethods.clickNextButton();
 
-        Assert.assertEquals(travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney ), true);
+        Assert.assertEquals(travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney ), true, "Podane ceny nie zgdadzją się");
+
+        TestFactoryUtils.log("Parametry testu: \r\n Kierunek: "+direction);
+
 
 //        Assert.assertEquals(standardProtection,travelOptionMethods.getPriceInStandardProtection(),"Kwota dla wariantu: 'Standardowa ochrona' nie zgadza się.");
 //        Assert.assertEquals(fullComfort,travelOptionMethods.getPriceInFullComfort(),"Kwota dla wariantu: 'Pełny komfort' nie zgadza się.");

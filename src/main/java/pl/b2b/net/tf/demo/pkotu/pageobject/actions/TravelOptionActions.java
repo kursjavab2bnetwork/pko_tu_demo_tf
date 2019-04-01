@@ -127,19 +127,33 @@ public class TravelOptionActions extends TravelOptionObject {
     }
 
     public boolean checkAllPrices(String standardProtection, String fullComfort, String prestigiousJourney) {
-        String standard = getPriceInStandardProtection().replace(",","").replace(".","");;
-        String comfort = getPriceInFullComfort().replace(",","").replace(".","");;
-        String prestigius = getPriceInPrestigiusJourney().replace(",","").replace(".","");;
+        String standard = getPriceInStandardProtection().replace(",", "").replace(".", "");
+        ;
+        String comfort = getPriceInFullComfort().replace(",", "").replace(".", "");
+        ;
+        String prestigius = getPriceInPrestigiusJourney().replace(",", "").replace(".", "");
+        ;
 
-        standardProtection = standardProtection.replace(",","").replace(".","");
-        fullComfort = fullComfort.replace(",","").replace(".","");
-        prestigiousJourney = prestigiousJourney.replace(",","").replace(".","");
+        standardProtection = standardProtection.replace(",", "").replace(".", "");
+        fullComfort = fullComfort.replace(",", "").replace(".", "");
+        prestigiousJourney = prestigiousJourney.replace(",", "").replace(".", "");
 
-        if (standard.equals(standardProtection)&& comfort.equals(fullComfort) && prestigius.equals(prestigiousJourney)) {
+        Boolean checkStandard = false;
+        Boolean checkComfort = false;
+        Boolean checkPrestigius = false;
+
+        if (standard.equals(standardProtection)) {
+            checkStandard = true;
+        } else if (comfort.equals(fullComfort)) {
+            checkComfort = true;
+        } else if (prestigius.equals(prestigiousJourney)) {
+            checkPrestigius = true;
+        }
+
+        if (checkStandard && checkComfort && checkPrestigius) {
             return true;
         } else {
             return false;
         }
-
     }
 }
