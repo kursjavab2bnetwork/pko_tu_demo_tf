@@ -24,34 +24,43 @@ public class TestFactorySteps extends BaseTF {
         travelOptionMethods = new TravelOptionActions(driver);
     }
 
-    @DataProvider(name = "TestData")
-    public Object[][] getData() throws IOException {
-        DataLoader dataLoader = new DataLoader();
-        Object[][] tab = dataLoader.read(GlobalDefinitions.EXCEL_FILE_PATH);
-        return tab;
+//    @DataProvider(name = "TestData")
+//    public Object[][] getData() throws IOException {
+//        DataLoader dataLoader = new DataLoader();
+//        Object[][] tab = dataLoader.read(GlobalDefinitions.EXCEL_FILE_PATH);
+//        return tab;
+//    }
+//
+//    @Test(dataProvider = "TestData")
+//    @TestFactoryMethod(value = "Demo test - porównanie parametrów", description = "Wykonanie zadania próbnego PoC", group = "demo")
+////    @Parameters({"direction", "destination", "dateOfDeparture", "dateOfReturn", "numberOfAdults", "numberOfChildren", "standardProtection", "fullComfort", "prestigiousJourney"})
+//    public void yourJourneyTest(String direction, String destination, String dateOfDeparture, String dateOfReturn, String numberOfAdults,
+//                                String numberOfChildren, String standardProtection, String fullComfort, String prestigiousJourney) throws AWTException {
+//
+//        travelOptionMethods.navigateToUrl();
+//        travelOptionMethods.selectDirection(direction);
+//        travelOptionMethods.selectPurpose(destination);
+//        travelOptionMethods.typeDates(dateOfDeparture, dateOfReturn);
+//        travelOptionMethods.numberOfTravelers(numberOfAdults, numberOfChildren);
+//        travelOptionMethods.clickNextButton();
+//        Assert.assertEquals(standardProtection,travelOptionMethods.getPriceInStandardProtection());
+//        Assert.assertEquals(fullComfort,travelOptionMethods.getPriceInFullComfort());
+//        Assert.assertEquals(prestigiousJourney,travelOptionMethods.getPriceInPrestigiusJourney());
+//
+////        WebDriverCfg.getWebDriverInstance().get(CfgTest.websiteAddress);
+////        Assert.assertNotNull(WebDriverCfg.getWebDriverInstance().getCurrentUrl());
+//    }
+
+
+
+
+    @DataProvider(name = "TestData2")
+    public static Object[][] inputData() {
+        return new Object[][] { { "Europa", "Wypoczynek", "20190405", "20190411", "1", "0", "31,36", "53,90", "91,14" },
+                { "Europa", "Narciarstwo", "20190405", "20190411", "1", "0", "82,96", "142,35", "246,20" }};
     }
 
-    @Test(dataProvider = "TestData")
-    @TestFactoryMethod(value = "Demo test - porównanie parametrów", description = "Wykonanie zadania próbnego PoC", group = "demo")
-//    @Parameters({"direction", "destination", "dateOfDeparture", "dateOfReturn", "numberOfAdults", "numberOfChildren", "standardProtection", "fullComfort", "prestigiousJourney"})
-    public void yourJourneyTest(String direction, String destination, String dateOfDeparture, String dateOfReturn, String numberOfAdults,
-                                String numberOfChildren, String standardProtection, String fullComfort, String prestigiousJourney) throws AWTException {
-
-        travelOptionMethods.navigateToUrl();
-        travelOptionMethods.selectDirection(direction);
-        travelOptionMethods.selectPurpose(destination);
-        travelOptionMethods.typeDates(dateOfDeparture, dateOfReturn);
-        travelOptionMethods.numberOfTravelers(numberOfAdults, numberOfChildren);
-        travelOptionMethods.clickNextButton();
-        Assert.assertEquals(standardProtection,travelOptionMethods.getPriceInStandardProtection());
-        Assert.assertEquals(fullComfort,travelOptionMethods.getPriceInFullComfort());
-        Assert.assertEquals(prestigiousJourney,travelOptionMethods.getPriceInPrestigiusJourney());
-
-//        WebDriverCfg.getWebDriverInstance().get(CfgTest.websiteAddress);
-//        Assert.assertNotNull(WebDriverCfg.getWebDriverInstance().getCurrentUrl());
-    }
-
-    @Test(dataProvider = "TestData")
+    @Test(dataProvider = "TestData2")
     @TestFactoryMethod(value = "Demo - weryfikacja stawek ubezpieczenia", description = "Wykonanie zadania próbnego PoC. DataProvider", group = "demo")
 //    @Parameters({"direction", "destination", "dateOfDeparture", "dateOfReturn", "numberOfAdults", "numberOfChildren", "standardProtection", "fullComfort", "prestigiousJourney"})
     public void yourJourneyTestDP(String direction, String destination, String dateOfDeparture, String dateOfReturn, String numberOfAdults,
