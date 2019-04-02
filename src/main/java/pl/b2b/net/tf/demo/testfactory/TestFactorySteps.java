@@ -2,6 +2,7 @@ package pl.b2b.net.tf.demo.testfactory;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -84,6 +85,7 @@ public class TestFactorySteps extends BaseTF {
     @Parameters({"direction", "destination", "dateOfDeparture", "dateOfReturn", "numberOfAdults", "numberOfChildren", "standardProtection", "fullComfort", "prestigiousJourney"})
     public void yourJourneyTestParams(String direction, String destination, String dateOfDeparture, String dateOfReturn, String numberOfAdults,
                                       String numberOfChildren, String standardProtection, String fullComfort, String prestigiousJourney) throws AWTException {
+ITestResult result = null;
 
         travelOptionMethods.navigateToUrl();
         travelOptionMethods.selectDirection(direction);
@@ -99,7 +101,8 @@ public class TestFactorySteps extends BaseTF {
         try {
             Assert.assertTrue(status, "Podane kwoty nie zgadzają się.\r\n" + message);
         }catch (AssertionError error){
-            throw new AssertionError(message);
+            TestFactoryUtils.log(message);
+              result.setStatus(ITestResult.FAILURE);
         }
 
     }
