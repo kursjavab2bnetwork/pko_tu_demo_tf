@@ -112,20 +112,20 @@ public class TravelOptionActions extends TravelOptionObject {
 
     public String getPriceInStandardProtection() {
         waitForWebElement(standardProtection);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", standardProtection);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", standardScroll);
         return standardProtection.getText();
     }
 
     public String getPriceInFullComfort() {
         waitForWebElement(fullComfort);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", fullComfort);
+      //  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", fullComfort);
 
         return fullComfort.getText();
     }
 
     public String getPriceInPrestigiusJourney() {
         waitForWebElement(standardProtection);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", standardProtection);
+     //   ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", standardProtection);
 
         return prestigiousJourney.getText();
     }

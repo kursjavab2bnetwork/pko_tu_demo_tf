@@ -98,7 +98,7 @@ public class TestFactorySteps extends BaseTF {
             status = true;
         }
 
-            Assert.assertTrue(status, "C:\\tf\\tmp\\pkotu_demo_data\\test_result.txt Podane kwoty nie zgadzają się.\r\n" + message);
+            Assert.assertTrue(status, "Podane kwoty nie zgadzają się.\r\n" + message);
 
     }
 }

@@ -41,6 +41,7 @@ public class TravelOptionObject extends AbstractPageObject{
     protected static final String FULL_COMFORT = "//div[@data-variant=\"optimum\"]/div[2]/ul/li[5]/span/span[1]";
     protected static final String PRESTIGIOUS_JOURNEY = "//div[@data-variant=\"lux\"]/div[2]/ul/li[5]/span/span[1]";
 
+    protected static final String STANDARD_SCROLL = "div.variants-col:nth-child(2)";
     @FindBy(xpath = TravelOptionObject.DESTINATION_EUROPE_TXT)
     protected WebElement destinationEurope;
 
@@ -91,4 +92,7 @@ public class TravelOptionObject extends AbstractPageObject{
 
     @FindBy(xpath = TravelOptionObject.PRESTIGIOUS_JOURNEY)
     protected WebElement prestigiousJourney;
+
+    @FindBy(css = TravelOptionObject.STANDARD_SCROLL)
+    protected WebElement standardScroll;
 }
