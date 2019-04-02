@@ -37,7 +37,7 @@ public class TestFactorySteps extends BaseTF {
     }
 
     @Test(dataProvider = "TestData")
-    @TestFactoryMethod(value = "Demo - weryfikacja stawek ubezpieczenia", description = "Wykonanie zadania próbnego PoC", group = "demo")
+    @TestFactoryMethod(value = "Demo - weryfikacja stawek ubezpieczenia", description = "Wykonanie zadania próbnego PoC. Zaczytanie parametrów z pliku", group = "Demo")
     public void yourJourneyTest(String direction, String destination, String dateOfDeparture, String dateOfReturn, String numberOfAdults,
                                 String numberOfChildren, String standardProtection, String fullComfort, String prestigiousJourney) throws AWTException {
         travelOptionMethods.navigateToUrl();
@@ -50,7 +50,7 @@ public class TestFactorySteps extends BaseTF {
         String line = "\r\n"+direction+";"+destination+";"+dateOfDeparture+";"+dateOfReturn+";"+numberOfAdults+";"+numberOfChildren+";"+standardProtection+";"+fullComfort+";"+prestigiousJourney;
 
         Boolean status = travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney );
-        Assert.assertTrue(status,"Podane kwoty nie zgadzają się");
+        Assert.assertTrue(status,"Podane kwoty nie zgadzają się. Zobacz log, aby sprawdzić szczegóły.");
 
         if(status){
             line = line+";Pozytywny";
@@ -67,31 +67,20 @@ public class TestFactorySteps extends BaseTF {
     }
 
 
+    @Test
+    @TestFactoryMethod(value = "Demo - weryfikacja stawek ubezpieczenia.", description = "Wykonanie zadania próbnego PoC. Samodzielnie wprowadź parametry.", group = "Demo")
+    @Parameters({"direction", "destination", "dateOfDeparture", "dateOfReturn", "numberOfAdults", "numberOfChildren", "standardProtection", "fullComfort", "prestigiousJourney"})
+    public void yourJourneyTestParams(String direction, String destination, String dateOfDeparture, String dateOfReturn, String numberOfAdults,
+                                String numberOfChildren, String standardProtection, String fullComfort, String prestigiousJourney) throws AWTException {
 
+        travelOptionMethods.navigateToUrl();
+        travelOptionMethods.selectDirection(direction);
+        travelOptionMethods.selectPurpose(destination);
+        travelOptionMethods.typeDates(dateOfDeparture, dateOfReturn);
+        travelOptionMethods.numberOfTravelers(numberOfAdults, numberOfChildren);
+        travelOptionMethods.clickNextButton();
+        Boolean status = travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney );
+        Assert.assertTrue(status,"Podane kwoty nie zgadzają się. Zobacz log, aby sprawdzić szczegóły.");
 
-//    @DataProvider(name = "TestData2")
-//    public static Object[][] inputData() {
-//        return new Object[][] { { "Europa", "Wypoczynek", "20190405", "20190411", "1", "0", "31,36", "53,90", "91,14" },
-//                { "Europa", "Narciarstwo", "20190405", "20190411", "1", "0", "82,96", "142,35", "246,20" }};
-//    }
-//
-//    @Test(dataProvider = "TestData2")
-//    @TestFactoryMethod(value = "Demo - weryfikacja stawek ubezpieczenia", description = "Wykonanie zadania próbnego PoC. DataProvider", group = "demo")
-////    @Parameters({"direction", "destination", "dateOfDeparture", "dateOfReturn", "numberOfAdults", "numberOfChildren", "standardProtection", "fullComfort", "prestigiousJourney"})
-//    public void yourJourneyTestDP(String direction, String destination, String dateOfDeparture, String dateOfReturn, String numberOfAdults,
-//                                String numberOfChildren, String standardProtection, String fullComfort, String prestigiousJourney) throws AWTException {
-//
-//        travelOptionMethods.navigateToUrl();
-//        travelOptionMethods.selectDirection(direction);
-//        travelOptionMethods.selectPurpose(destination);
-//        travelOptionMethods.typeDates(dateOfDeparture, dateOfReturn);
-//        travelOptionMethods.numberOfTravelers(numberOfAdults, numberOfChildren);
-//        travelOptionMethods.clickNextButton();
-//        Assert.assertEquals(standardProtection,travelOptionMethods.getPriceInStandardProtection());
-//        Assert.assertEquals(fullComfort,travelOptionMethods.getPriceInFullComfort());
-//        Assert.assertEquals(prestigiousJourney,travelOptionMethods.getPriceInPrestigiusJourney());
-//
-////        WebDriverCfg.getWebDriverInstance().get(CfgTest.websiteAddress);
-////        Assert.assertNotNull(WebDriverCfg.getWebDriverInstance().getCurrentUrl());
-//    }
+    }
 }

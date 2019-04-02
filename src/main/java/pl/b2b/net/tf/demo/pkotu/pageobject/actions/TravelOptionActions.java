@@ -152,8 +152,10 @@ public class TravelOptionActions extends TravelOptionObject {
         if (checkStandard && checkComfort && checkPrestigius) {
             return true;
         } else {
-            return true;
+            return false;
         }
+
+
 
     }
 }
