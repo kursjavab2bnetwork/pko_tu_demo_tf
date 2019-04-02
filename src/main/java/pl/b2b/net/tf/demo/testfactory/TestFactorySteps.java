@@ -99,7 +99,7 @@ public class TestFactorySteps extends BaseTF {
         try {
             Assert.assertTrue(status, "Podane kwoty nie zgadzają się.\r\n" + message);
         }catch (AssertionError error){
-            TestFactoryUtils.log(message);
+            throw new AssertionError(message);
         }
 
     }
