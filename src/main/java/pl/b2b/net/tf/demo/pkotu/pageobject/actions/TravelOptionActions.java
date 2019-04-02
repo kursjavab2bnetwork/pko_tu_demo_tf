@@ -132,6 +132,13 @@ public class TravelOptionActions extends TravelOptionObject {
         String standard = getPriceInStandardProtection();
         String comfort = getPriceInFullComfort();
         String prestigius = getPriceInPrestigiusJourney();
+        TestFactoryUtils.log("standard ",standard);
+        TestFactoryUtils.log("comfort ",comfort);
+        TestFactoryUtils.log("prestigius ",prestigius);
+
+        TestFactoryUtils.log("standardProtection ",standardProtection);
+        TestFactoryUtils.log("fullComfort ",fullComfort);
+        TestFactoryUtils.log("prestigiousJourney ",prestigiousJourney);
 
         standardProtection = standardProtection.replace(".", ",");
         fullComfort = fullComfort.replace(".", ",");
