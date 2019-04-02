@@ -47,9 +47,15 @@ public class TestFactorySteps extends BaseTF {
         travelOptionMethods.numberOfTravelers(numberOfAdults, numberOfChildren);
         travelOptionMethods.clickNextButton();
 
-        String line = "\r\n"+direction+";"+destination+";"+dateOfDeparture+";"+dateOfReturn+";"+numberOfAdults+";"+numberOfChildren+";"+standardProtection.replace(".", ",")+";"+fullComfort.replace(".", ",")+";"+prestigiousJourney.replace(".", ",");
+        String standard = travelOptionMethods.getPriceInStandardProtection().trim().replace(".", ",");
+        String comfort = travelOptionMethods.getPriceInFullComfort().trim().replace(".", ",");
+        String prestigius = travelOptionMethods.getPriceInPrestigiusJourney().trim().replace(".", ",");
 
-        Boolean status = travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney );
+        TestFactoryUtils.log("Kierunek;Cel wyjzadu;Data wyjazdu;Data powrotu;Liczba dorosłych;Liczba dzieci;Cena standard;Cena standard oczekiwana;Cena comfort;Cena komfort oczekiwana;Cena presitż;Cena prestiż oczekiwana");
+        String line = "\r\n"+direction+";"+destination+";"+dateOfDeparture+";"+dateOfReturn+";"+numberOfAdults+";"+numberOfChildren+";"+standardProtection.replace(".", ",")+";"+standard+";"+fullComfort.replace(".", ",")+";"+comfort+";"+prestigiousJourney.replace(".", ",")+";"+prestigius;
+
+
+        Boolean status = travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney ,false);
         Assert.assertTrue(status,"Podane kwoty nie zgadzają się. Zobacz log, aby sprawdzić szczegóły.");
 
         if(status){
@@ -76,7 +82,7 @@ public class TestFactorySteps extends BaseTF {
         travelOptionMethods.typeDates(dateOfDeparture, dateOfReturn);
         travelOptionMethods.numberOfTravelers(numberOfAdults, numberOfChildren);
         travelOptionMethods.clickNextButton();
-        Boolean status = travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney );
+        Boolean status = travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney,true );
         Assert.assertTrue(status,"Podane kwoty nie zgadzają się. Zobacz log, aby sprawdzić szczegóły.");
 
     }

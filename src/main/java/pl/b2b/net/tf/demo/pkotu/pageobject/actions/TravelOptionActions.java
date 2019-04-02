@@ -128,7 +128,7 @@ public class TravelOptionActions extends TravelOptionObject {
         return prestigiousJourney.getText();
     }
 
-    public Boolean checkAllPrices(String standardProtection, String fullComfort, String prestigiousJourney) {
+    public Boolean checkAllPrices(String standardProtection, String fullComfort, String prestigiousJourney,Boolean log) {
         String standard = getPriceInStandardProtection().trim().replace(".", ",");
         String comfort = getPriceInFullComfort().trim().replace(".", ",");
         String prestigius = getPriceInPrestigiusJourney().trim().replace(".", ",");
@@ -140,27 +140,27 @@ public class TravelOptionActions extends TravelOptionObject {
         Boolean checkStandard = false;
         Boolean checkComfort = false;
         Boolean checkPrestigius = false;
-
+  
         if (standard.equals(standardProtection)) {
             checkStandard = true;
         } else {
             checkStandard = false;
-             TestFactoryUtils.log("Kwota za pakiet standard wynosi: "+standard+", zamiast: "+standardProtection+"\r\n");
-        }
+          if(log){TestFactoryUtils.log("Kwota za pakiet standard wynosi: "+standard+", zamiast: "+standardProtection+"\r\n");}
+         }
 
         if (comfort.equals(fullComfort)) {
             checkComfort = true;
         } else {
             checkComfort = false;
-            TestFactoryUtils.log("Kwota za pakiet comfort wynosi: "+comfort+", zamiast: "+fullComfort+"\r\n");
+           if(log){ TestFactoryUtils.log("Kwota za pakiet comfort wynosi: "+comfort+", zamiast: "+fullComfort+"\r\n");}
         }
 
         if (prestigius.equals(prestigiousJourney)) {
             checkPrestigius = true;
         }else{
             checkPrestigius = false;
-            TestFactoryUtils.log("Kwota za pakiet prestiż wynosi: "+prestigius+", zamiast: "+prestigiousJourney+"\r\n");
-        }
+            if(log){TestFactoryUtils.log("Kwota za pakiet prestiż wynosi: "+prestigius+", zamiast: "+prestigiousJourney+"\r\n");}
+         }
 
         if (checkStandard && checkComfort && checkPrestigius) {
             return true;
