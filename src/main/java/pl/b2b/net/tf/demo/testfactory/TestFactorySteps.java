@@ -53,26 +53,28 @@ public class TestFactorySteps extends BaseTF {
         String comfort = travelOptionMethods.getPriceInFullComfort().trim().replace(".", ",");
         String prestigius = travelOptionMethods.getPriceInPrestigiusJourney().trim().replace(".", ",");
 
-        standardProtection =  standardProtection.replace(".", ",");
+        standardProtection = standardProtection.replace(".", ",");
         fullComfort = fullComfort.replace(".", ",");
         prestigiousJourney = prestigiousJourney.replace(".", ",");
 
-        String line = "\r\n"+direction+";"+destination+";"+dateOfDeparture+";"+dateOfReturn+";"+numberOfAdults+";"+numberOfChildren+";"+standardProtection+";"+standard+";"+fullComfort+";"+comfort+";"+prestigiousJourney+";"+prestigius;
+        String line = "\r\n" + direction + ";" + destination + ";" + dateOfDeparture + ";" + dateOfReturn + ";" + numberOfAdults + ";" + numberOfChildren + ";" + standardProtection + ";" + standard + ";" + fullComfort + ";" + comfort + ";" + prestigiousJourney + ";" + prestigius;
 
         Boolean status = false;
-        String message = travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney );
-        if(message.equals("")){status = true;}
+        String message = travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney);
+        if (message.equals("")) {
+            status = true;
+        }
 
-        Assert.assertTrue(status,"Podane kwoty nie zgadzają się. Zobacz log, aby sprawdzić szczegóły.");
+        Assert.assertTrue(status, "Podane kwoty nie zgadzają się. Zobacz log, aby sprawdzić szczegóły.");
 
-        if(status){
-            line = line+";Pozytywny";
-        }else{
-            line = line+";Negatywny";
+        if (status) {
+            line = line + ";Pozytywny";
+        } else {
+            line = line + ";Negatywny";
         }
         resultList.add(line);
 
-        TestFactoryUtils.log(""+resultList);
+        TestFactoryUtils.log("" + resultList);
 
     }
 
@@ -81,7 +83,7 @@ public class TestFactorySteps extends BaseTF {
     @TestFactoryMethod(value = "Demo - weryfikacja stawek ubezpieczenia.", description = "Wykonanie zadania próbnego PoC. Samodzielnie wprowadź parametry.", group = "Demo")
     @Parameters({"direction", "destination", "dateOfDeparture", "dateOfReturn", "numberOfAdults", "numberOfChildren", "standardProtection", "fullComfort", "prestigiousJourney"})
     public void yourJourneyTestParams(String direction, String destination, String dateOfDeparture, String dateOfReturn, String numberOfAdults,
-                                String numberOfChildren, String standardProtection, String fullComfort, String prestigiousJourney) throws AWTException {
+                                      String numberOfChildren, String standardProtection, String fullComfort, String prestigiousJourney) throws AWTException {
 
         travelOptionMethods.navigateToUrl();
         travelOptionMethods.selectDirection(direction);
@@ -89,10 +91,16 @@ public class TestFactorySteps extends BaseTF {
         travelOptionMethods.typeDates(dateOfDeparture, dateOfReturn);
         travelOptionMethods.numberOfTravelers(numberOfAdults, numberOfChildren);
         travelOptionMethods.clickNextButton();
-        String message = travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney );
-        Boolean status=false;
-        if(message.equals("")){status = true;}
-        Assert.assertTrue(status,"Podane kwoty nie zgadzają się.\r\n"+message);
+        String message = travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney);
+        Boolean status = false;
+        if (message.equals("")) {
+            status = true;
+        }
+        try {
+            Assert.assertTrue(status, "Podane kwoty nie zgadzają się.\r\n" + message);
+        }catch (AssertionError error){
+            TestFactoryUtils.log(message);
+        }
 
     }
 }
