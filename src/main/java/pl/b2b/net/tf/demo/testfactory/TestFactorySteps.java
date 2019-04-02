@@ -53,7 +53,11 @@ public class TestFactorySteps extends BaseTF {
         String comfort = travelOptionMethods.getPriceInFullComfort().trim().replace(".", ",");
         String prestigius = travelOptionMethods.getPriceInPrestigiusJourney().trim().replace(".", ",");
 
-        String line = "\r\n"+direction+";"+destination+";"+dateOfDeparture+";"+dateOfReturn+";"+numberOfAdults+";"+numberOfChildren+";"+standardProtection.replace(".", ",")+";"+standard+";"+fullComfort.replace(".", ",")+";"+comfort+";"+prestigiousJourney.replace(".", ",")+";"+prestigius;
+        standardProtection =  standardProtection.replace(".", ",");
+        fullComfort = fullComfort.replace(".", ",");
+        prestigiousJourney = prestigiousJourney.replace(".", ",");
+
+        String line = "\r\n"+direction+";"+destination+";"+dateOfDeparture+";"+dateOfReturn+";"+numberOfAdults+";"+numberOfChildren+";"+standardProtection+";"+standard+";"+fullComfort+";"+comfort+";"+prestigiousJourney+";"+prestigius;
 
         Boolean status = false;
         String message = travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney );
