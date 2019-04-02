@@ -28,7 +28,7 @@ public class TestFactorySteps extends BaseTF {
     public void setUp() {
         WebDriver driver = DriverSetup.getDriver();
         travelOptionMethods = new TravelOptionActions(driver);
-        TestFactoryUtils.log("\r\nKierunek;Cel wyjzadu;Data wyjazdu;Data powrotu;Liczba dorosłych;Liczba dzieci;Cena standard;Cena standard oczekiwana;Cena comfort;Cena komfort oczekiwana;Cena presitż;Cena prestiż oczekiwana");
+ //       TestFactoryUtils.log("\r\nKierunek;Cel wyjzadu;Data wyjazdu;Data powrotu;Liczba dorosłych;Liczba dzieci;Cena standard;Cena standard oczekiwana;Cena comfort;Cena komfort oczekiwana;Cena presitż;Cena prestiż oczekiwana");
 
     }
 
@@ -85,7 +85,6 @@ public class TestFactorySteps extends BaseTF {
     @Parameters({"direction", "destination", "dateOfDeparture", "dateOfReturn", "numberOfAdults", "numberOfChildren", "standardProtection", "fullComfort", "prestigiousJourney"})
     public void yourJourneyTestParams(String direction, String destination, String dateOfDeparture, String dateOfReturn, String numberOfAdults,
                                       String numberOfChildren, String standardProtection, String fullComfort, String prestigiousJourney) throws AWTException {
-ITestResult result = null;
 
         travelOptionMethods.navigateToUrl();
         travelOptionMethods.selectDirection(direction);
@@ -98,12 +97,8 @@ ITestResult result = null;
         if (message.equals("")) {
             status = true;
         }
-        try {
+
             Assert.assertTrue(status, "Podane kwoty nie zgadzają się.\r\n" + message);
-        }catch (AssertionError error){
-            TestFactoryUtils.log(message);
-              result.setStatus(ITestResult.FAILURE);
-        }
 
     }
 }
