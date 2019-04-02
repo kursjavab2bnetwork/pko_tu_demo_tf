@@ -129,13 +129,13 @@ public class TravelOptionActions extends TravelOptionObject {
     }
 
     public Boolean checkAllPrices(String standardProtection, String fullComfort, String prestigiousJourney) {
-        String standard = getPriceInStandardProtection().replace(".", "");
-        String comfort = getPriceInFullComfort().replace(".", "");
-        String prestigius = getPriceInPrestigiusJourney().replace(".", "");
+        String standard = getPriceInStandardProtection();
+        String comfort = getPriceInFullComfort();
+        String prestigius = getPriceInPrestigiusJourney();
 
-        standardProtection = standardProtection.replace(",", "");
-        fullComfort = fullComfort.replace(",", "");
-        prestigiousJourney = prestigiousJourney.replace(",", "");
+        standardProtection = standardProtection.replace(".", ",");
+        fullComfort = fullComfort.replace(".", ",");
+        prestigiousJourney = prestigiousJourney.replace(".", ",");
 
         Boolean checkStandard = false;
         Boolean checkComfort = false;
