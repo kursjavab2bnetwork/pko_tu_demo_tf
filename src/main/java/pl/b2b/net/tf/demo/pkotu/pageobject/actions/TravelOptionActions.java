@@ -1,9 +1,6 @@
 package pl.b2b.net.tf.demo.pkotu.pageobject.actions;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.testng.Assert;
 import pl.b2b.net.tf.demo.pkotu.pageobject.pages.TravelOptionObject;
 import pl.b2b.testfactory.TestFactoryUtils;
@@ -115,16 +112,21 @@ public class TravelOptionActions extends TravelOptionObject {
 
     public String getPriceInStandardProtection() {
         waitForWebElement(standardProtection);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", standardProtection);
         return standardProtection.getText();
     }
 
     public String getPriceInFullComfort() {
         waitForWebElement(fullComfort);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", fullComfort);
+
         return fullComfort.getText();
     }
 
     public String getPriceInPrestigiusJourney() {
         waitForWebElement(standardProtection);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", standardProtection);
+
         return prestigiousJourney.getText();
     }
 
