@@ -129,16 +129,9 @@ public class TravelOptionActions extends TravelOptionObject {
     }
 
     public Boolean checkAllPrices(String standardProtection, String fullComfort, String prestigiousJourney) {
-        String standard = getPriceInStandardProtection().trim();
-        String comfort = getPriceInFullComfort().trim();
-        String prestigius = getPriceInPrestigiusJourney().trim();
-        TestFactoryUtils.log("standard "+standard);
-        TestFactoryUtils.log("comfort "+comfort);
-        TestFactoryUtils.log("prestigius "+prestigius);
-
-        TestFactoryUtils.log("standardProtection "+standardProtection);
-        TestFactoryUtils.log("fullComfort "+fullComfort);
-        TestFactoryUtils.log("prestigiousJourney "+prestigiousJourney);
+        String standard = getPriceInStandardProtection().trim().replace(".", ",");
+        String comfort = getPriceInFullComfort().trim().replace(".", ",");
+        String prestigius = getPriceInPrestigiusJourney().trim().replace(".", ",");
 
         standardProtection = standardProtection.trim().replace(".", ",");
         fullComfort = fullComfort.trim().replace(".", ",");
@@ -147,14 +140,12 @@ public class TravelOptionActions extends TravelOptionObject {
         Boolean checkStandard = false;
         Boolean checkComfort = false;
         Boolean checkPrestigius = false;
-     //   String message="";
 
         if (standard.equals(standardProtection)) {
             checkStandard = true;
         } else {
             checkStandard = false;
-        //    message = "Kwota za pakiet standard wynosi: "+standard+", zamiast: "+standardProtection+"\r\n";
-            TestFactoryUtils.log("Kwota za pakiet standard wynosi: "+standard+", zamiast: "+standardProtection+"\r\n");
+             TestFactoryUtils.log("Kwota za pakiet standard wynosi: "+standard+", zamiast: "+standardProtection+"\r\n");
         }
 
         if (comfort.equals(fullComfort)) {
@@ -162,7 +153,6 @@ public class TravelOptionActions extends TravelOptionObject {
         } else {
             checkComfort = false;
             TestFactoryUtils.log("Kwota za pakiet comfort wynosi: "+comfort+", zamiast: "+fullComfort+"\r\n");
-          //  message = message + "Kwota za pakiet comfort wynosi: "+comfort+", zamiast: "+fullComfort+"\r\n";
         }
 
         if (prestigius.equals(prestigiousJourney)) {
@@ -170,7 +160,6 @@ public class TravelOptionActions extends TravelOptionObject {
         }else{
             checkPrestigius = false;
             TestFactoryUtils.log("Kwota za pakiet prestiż wynosi: "+prestigius+", zamiast: "+prestigiousJourney+"\r\n");
-            //message = message + "Kwota za pakiet prestiż wynosi: "+prestigius+", zamiast: "+prestigiousJourney+"\r\n";
         }
 
         if (checkStandard && checkComfort && checkPrestigius) {

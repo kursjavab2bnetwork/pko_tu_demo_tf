@@ -47,7 +47,7 @@ public class TestFactorySteps extends BaseTF {
         travelOptionMethods.numberOfTravelers(numberOfAdults, numberOfChildren);
         travelOptionMethods.clickNextButton();
 
-        String line = "\r\n"+direction+";"+destination+";"+dateOfDeparture+";"+dateOfReturn+";"+numberOfAdults+";"+numberOfChildren+";"+standardProtection+";"+fullComfort+";"+prestigiousJourney;
+        String line = "\r\n"+direction+";"+destination+";"+dateOfDeparture+";"+dateOfReturn+";"+numberOfAdults+";"+numberOfChildren+";"+standardProtection.replace(".", ",")+";"+fullComfort.replace(".", ",")+";"+prestigiousJourney.replace(".", ",");
 
         Boolean status = travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney );
         Assert.assertTrue(status,"Podane kwoty nie zgadzają się. Zobacz log, aby sprawdzić szczegóły.");
@@ -61,9 +61,6 @@ public class TestFactorySteps extends BaseTF {
 
         TestFactoryUtils.log(""+resultList);
 
-//        Assert.assertEquals(standardProtection,travelOptionMethods.getPriceInStandardProtection(),"Kwota dla wariantu: 'Standardowa ochrona' nie zgadza się.");
-//        Assert.assertEquals(fullComfort,travelOptionMethods.getPriceInFullComfort(),"Kwota dla wariantu: 'Pełny komfort' nie zgadza się.");
-//        Assert.assertEquals(prestigiousJourney,travelOptionMethods.getPriceInPrestigiusJourney(),"Kwota dla wariantu: 'Prestiżowa podróż' nie zgadza się.");
     }
 
 
