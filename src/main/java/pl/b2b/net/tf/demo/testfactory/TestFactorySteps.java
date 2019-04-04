@@ -23,8 +23,6 @@ public class TestFactorySteps extends BaseTF {
     public void setUp() {
         WebDriver driver = DriverSetup.getDriver();
         travelOptionMethods = new TravelOptionActions(driver);
-//        String firstLine = "\r\nKierunek;Cel wyjzadu;Data wyjazdu;Data powrotu;Liczba dorosłych;Liczba dzieci;Cena standard;Cena standard oczekiwana;Cena comfort;Cena komfort oczekiwana;Cena presitż;Cena prestiż oczekiwana";
-//        resultList.add(firstLine);
     }
 
     @DataProvider(name = "TestData")
@@ -54,10 +52,9 @@ public class TestFactorySteps extends BaseTF {
         fullComfort = fullComfort.replace(".", ",");
         prestigiousJourney = prestigiousJourney.replace(".", ",");
 
- //       TestFactoryUtils.log("\r\nKierunek;Cel wyjzadu;Data wyjazdu;Data powrotu;Liczba dorosłych;Liczba dzieci;Cena standard;Cena standard oczekiwana;Cena comfort;Cena komfort oczekiwana;Cena presitż;Cena prestiż oczekiwana");
-        String line="";
+        String line;
         if(firstIteration){
-            line = "\r\nKierunek;Cel wyjzadu;Data wyjazdu;Data powrotu;Liczba dorosłych;Liczba dzieci;Cena standard;Cena standard oczekiwana;Cena comfort;Cena komfort oczekiwana;Cena presitż;Cena prestiż oczekiwana"
+            line = "\r\nKierunek;Cel wyjzadu;Data wyjazdu;Data powrotu;Liczba dorosłych;Liczba dzieci;Cena standard;Cena standard oczekiwana;Cena comfort;Cena komfort oczekiwana;Cena presitż;Cena prestiż oczekiwana;Rezultat"
             +"\r\n" + direction + ";" + destination + ";" + dateOfDeparture + ";" + dateOfReturn + ";" + numberOfAdults + ";" + numberOfChildren + ";" + standardProtection + ";" + standard + ";" + fullComfort + ";" + comfort + ";" + prestigiousJourney + ";" + prestigius;
             firstIteration = false;
         }else{
@@ -75,16 +72,9 @@ public class TestFactorySteps extends BaseTF {
             line = line + ";Negatywny";
         }
 
-//        if (status) {
-//            line = line + ";Pozytywny";
-//        } else {
-//            line = line + ";Negatywny";
-//        }
         resultList.add(line);
-
         TestFactoryUtils.log("" + resultList +"\r\n");
         Assert.assertTrue(status, "Podane kwoty nie zgadzają się. Zobacz log, aby sprawdzić szczegóły.");
-
     }
 
 
@@ -105,10 +95,6 @@ public class TestFactorySteps extends BaseTF {
         if (message.equals("")) {
             status = true;
         }
-
         Assert.assertTrue(status, "Podane kwoty nie zgadzają się.\r\n" + message);
-
     }
-
-
 }

@@ -25,7 +25,6 @@ public class TravelOptionActions extends TravelOptionObject {
         Assert.assertNotNull(TravelOptionObject.TITLE_XPATH, "The title does not match");
     }
 
-
     public void selectDirection(String direction) {
         switch (direction) {
             case "Europa":
@@ -65,27 +64,6 @@ public class TravelOptionActions extends TravelOptionObject {
         checkIfSuccess(3,"Termin wyjazdu nie został wprowadzony ");
     }
 
-//    public void selectDatesFromDataPicker(String dateOfDeparture, String dateOfReturn){
-//        selectStartDateFromDataPicker(dateOfDeparture);
-//    }
-//
-//    private void selectStartDateFromDataPicker(String dayNumber){
-//        click(startDate);
-//        List<WebElement> columns = startDatePicker.findElements(By.tagName("td"));
-//
-//        for (WebElement cell: columns) {
-//
-//            if (cell.getText().equals(dayNumber)) {
-//                cell.findElement(By.linkText(dayNumber)).click();
-//                break;
-//            }
-//        click(startDateSave);
-//}
-//
-//
-//
-//    }
-
     public void clickNextButton() {
         click(nextButton);
     }
@@ -118,15 +96,11 @@ public class TravelOptionActions extends TravelOptionObject {
 
     public String getPriceInFullComfort() {
         waitForWebElement(fullComfort);
-      //  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", fullComfort);
-
         return fullComfort.getText();
     }
 
     public String getPriceInPrestigiusJourney() {
         waitForWebElement(standardProtection);
-     //   ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", standardProtection);
-
         return prestigiousJourney.getText();
     }
 
@@ -139,9 +113,6 @@ public class TravelOptionActions extends TravelOptionObject {
         fullComfort = fullComfort.trim().replace(".", ",");
         prestigiousJourney = prestigiousJourney.trim().replace(".", ",");
 
-//        Boolean checkStandard = false;
-//        Boolean checkComfort = false;
-//        Boolean checkPrestigius = false;
         String message = "";
 
         if (!standard.equals(standardProtection)) {
@@ -156,34 +127,6 @@ public class TravelOptionActions extends TravelOptionObject {
             message = message + "Kwota za pakiet prestiż wynosi: "+prestigius+", zamiast: "+prestigiousJourney+"\r\n";
         }
 
-
-
-//        if (standard.equals(standardProtection)) {
-////            checkStandard = true;
-//        } else {
-////            checkStandard = false;
-//        message = "Kwota za pakiet standard wynosi: "+standard+", zamiast: "+standardProtection+"\r\n";
-//         }
-//
-//        if (comfort.equals(fullComfort)) {
-////            checkComfort = true;
-//        } else {
-////            checkComfort = false;
-//         message = message + "Kwota za pakiet comfort wynosi: "+comfort+", zamiast: "+fullComfort+"\r\n";
-//        }
-//
-//        if (prestigius.equals(prestigiousJourney)) {
-////            checkPrestigius = true;
-//        }else{
-////            checkPrestigius = false;
-//         message = message + "Kwota za pakiet prestiż wynosi: "+prestigius+", zamiast: "+prestigiousJourney+"\r\n";
-//        }
-
-//        if (checkStandard && checkComfort && checkPrestigius) {
-//            return true;
-//        } else {
-//            return false;
-//        }
         return message;
 
     }
