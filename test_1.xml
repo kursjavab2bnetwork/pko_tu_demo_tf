@@ -1,7 +1,7 @@
 <suite name="Test_1">
-    <parameter name="url" value="https://twojapolisa.pkoubezpieczenia.pl/kupuje/produkt/takpodrozuje.html"/>
-    <parameter name="driverPath" value="src\\main\\resources\\Geckodriver.exe"/>
-    <parameter name="excelPath" value="src\\main\\resources\\skladkaTDmz1.xls"/>
+    <!--<parameter name="url" value="https://twojapolisa.pkoubezpieczenia.pl/kupuje/produkt/takpodrozuje.html"/>-->
+    <!--<parameter name="driverPath" value="src\\main\\resources\\Geckodriver.exe"/>-->
+    <!--<parameter name="excelPath" value="src\\main\\resources\\skladkaTDmz1.xls"/>-->
 
     <!--<test name="PKO Ubezpieczenia - porównanie parametrów">-->
         <!--<classes>-->

@@ -17,13 +17,13 @@ import java.util.List;
 
 public class TestFactorySteps extends BaseTF {
     private TravelOptionActions travelOptionMethods;
-
     List<String> resultList = new ArrayList<>();
 
     @BeforeMethod
     public void setUp() {
         WebDriver driver = DriverSetup.getDriver();
         travelOptionMethods = new TravelOptionActions(driver);
+
  //       TestFactoryUtils.log("\r\nKierunek;Cel wyjzadu;Data wyjazdu;Data powrotu;Liczba dorosłych;Liczba dzieci;Cena standard;Cena standard oczekiwana;Cena comfort;Cena komfort oczekiwana;Cena presitż;Cena prestiż oczekiwana");
 
     }
@@ -72,14 +72,10 @@ public class TestFactorySteps extends BaseTF {
         }
         resultList.add(line);
 
- //       TestFactoryUtils.log("" + resultList);
-
-    }
-
-    @AfterMethod
-    public void saveLog(){
         TestFactoryUtils.log("" + resultList);
+
     }
+
 
     @Test
     @TestFactoryMethod(value = "Demo - weryfikacja stawek ubezpieczenia.", description = "Wykonanie zadania próbnego PoC. Samodzielnie wprowadź parametry.", group = "Demo")
