@@ -77,7 +77,7 @@ public class TestFactorySteps extends BaseTF {
     }
 
     @AfterMethod
-    public void saveLog(List<String> logList){
+    public void saveLog(){
         TestFactoryUtils.log("" + resultList);
     }
 
