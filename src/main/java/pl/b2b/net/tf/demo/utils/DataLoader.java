@@ -33,9 +33,9 @@ public class DataLoader {
         try {
             w = Workbook.getWorkbook(inputWorkbook);
             // Get the first sheet
-            Sheet sheet = w.getSheet(1);
+            Sheet sheet = w.getSheet(0);
             //loop over first 10 column and lines
-            for (int j = 0; j < sheet.getRows(); j++) {
+            for (int j = 2; j < sheet.getRows(); j++) {
                 for (int i = 1; i < sheet.getColumns(); i++) {
                     Cell cell = sheet.getCell(i, j);
                     CellType type = cell.getType();
