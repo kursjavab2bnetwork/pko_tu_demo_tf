@@ -74,7 +74,7 @@ public class TestFactorySteps extends BaseTF {
 //            line = line + ";Negatywny";
 //        }
         resultList.add(line);
-
+        TestFactoryUtils.log("" + message);
         TestFactoryUtils.log("" + resultList);
 
     }

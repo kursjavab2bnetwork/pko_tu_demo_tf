@@ -156,7 +156,7 @@ public class TravelOptionActions extends TravelOptionObject {
             message = message + "Kwota za pakiet prestiż wynosi: "+prestigius+", zamiast: "+prestigiousJourney+"\r\n";
         }
 
-        
+
 
 //        if (standard.equals(standardProtection)) {
 ////            checkStandard = true;
