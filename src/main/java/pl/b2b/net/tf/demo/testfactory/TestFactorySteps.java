@@ -19,6 +19,7 @@ public class TestFactorySteps extends BaseTF {
     private TravelOptionActions travelOptionMethods;
     List<String> resultList = new ArrayList<>();
     Boolean firstIteration = true;
+    Boolean scenarioStatus = true;
     @BeforeMethod
     public void setUp() {
         WebDriver driver = DriverSetup.getDriver();
@@ -69,12 +70,16 @@ public class TestFactorySteps extends BaseTF {
             line = line + ";Pozytywny";
         } else {
             status = false;
+            scenarioStatus = false;
             line = line + ";Negatywny";
         }
 
         resultList.add(line);
         TestFactoryUtils.log("" + resultList +"\r\n");
         Assert.assertTrue(status, "Podane kwoty nie zgadzają się. Zobacz log, aby sprawdzić szczegóły.");
+        Assert.assertTrue(scenarioStatus, "Podane kwoty nie zgadzają się. Zobacz log, aby sprawdzić szczegóły.");
+
+
     }
 
 
