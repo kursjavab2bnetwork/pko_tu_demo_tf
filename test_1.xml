@@ -3,14 +3,13 @@
     <parameter name="driverPath" value="src\\main\\resources\\Geckodriver.exe"/>
     <parameter name="excelPath" value="src\\main\\resources\\skladkaTDmz1.xls"/>
 
-
-    <!--<test name="Uruchomienie srodowiska testowego">-->
-        <!--<classes>-->
-            <!--<class name="pl.b2b.tf.demo.TransactionTest">-->
+    <test name="PKO Ubezpieczenia - porównanie parametrów">
+        <classes>
+            <class name="pl.b2b.tf.demo.DemoTest">
                 <!--<methods>-->
-                    <!--<include name="transactionTestDataProvider"/>-->
+                    <!--<include name="demoTest"/>-->
                 <!--</methods>-->
-            <!--</class>-->
-        <!--</classes>-->
-    <!--</test>-->
+            </class>
+        </classes>
+    </test>
 </suite>

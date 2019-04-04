@@ -2,7 +2,6 @@ package pl.b2b.net.tf.demo.testfactory;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.ITestResult;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -38,6 +37,7 @@ public class TestFactorySteps extends BaseTF {
         Object[][] tab = dataLoader.read(GlobalDefinitions.EXCEL_FILE_PATH);
         return tab;
     }
+
 
     @Test(dataProvider = "TestData")
     @TestFactoryMethod(value = "Demo - weryfikacja stawek ubezpieczenia", description = "Wykonanie zadania próbnego PoC. Zaczytanie parametrów z pliku", group = "Demo")
@@ -98,7 +98,9 @@ public class TestFactorySteps extends BaseTF {
             status = true;
         }
 
-            Assert.assertTrue(status, "Podane kwoty nie zgadzają się.\r\n" + message);
+        Assert.assertTrue(status, "Podane kwoty nie zgadzają się.\r\n" + message);
 
     }
+
+
 }
