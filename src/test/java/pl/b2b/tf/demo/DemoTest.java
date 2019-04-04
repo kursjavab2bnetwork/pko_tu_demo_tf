@@ -1,12 +1,12 @@
 package pl.b2b.tf.demo;
 
-import org.testng.annotations.*;
-import pl.b2b.net.tf.demo.GlobalDefinitions;
-import pl.b2b.net.tf.demo.testfactory.BaseTF;
-import pl.b2b.net.tf.demo.testfactory.TestFactorySteps;
-import pl.b2b.net.tf.demo.utils.DataLoader;
-
-import java.io.IOException;
+//import org.testng.annotations.*;
+//import pl.b2b.net.tf.demo.GlobalDefinitions;
+//import pl.b2b.net.tf.demo.testfactory.BaseTF;
+//import pl.b2b.net.tf.demo.testfactory.TestFactorySteps;
+//import pl.b2b.net.tf.demo.utils.DataLoader;
+//
+//import java.io.IOException;
 
 public class DemoTest {
 //

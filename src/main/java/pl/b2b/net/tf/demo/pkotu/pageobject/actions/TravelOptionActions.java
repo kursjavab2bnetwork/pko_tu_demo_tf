@@ -139,31 +139,45 @@ public class TravelOptionActions extends TravelOptionObject {
         fullComfort = fullComfort.trim().replace(".", ",");
         prestigiousJourney = prestigiousJourney.trim().replace(".", ",");
 
-        Boolean checkStandard = false;
-        Boolean checkComfort = false;
-        Boolean checkPrestigius = false;
+//        Boolean checkStandard = false;
+//        Boolean checkComfort = false;
+//        Boolean checkPrestigius = false;
         String message = "";
 
-        if (standard.equals(standardProtection)) {
-            checkStandard = true;
-        } else {
-            checkStandard = false;
-        message = "Kwota za pakiet standard wynosi: "+standard+", zamiast: "+standardProtection+"\r\n";
-         }
-
-        if (comfort.equals(fullComfort)) {
-            checkComfort = true;
-        } else {
-            checkComfort = false;
-         message = message + "Kwota za pakiet comfort wynosi: "+comfort+", zamiast: "+fullComfort+"\r\n";
+        if (!standard.equals(standardProtection)) {
+            message = "Kwota za pakiet standard wynosi: "+standard+", zamiast: "+standardProtection+"\r\n";
         }
 
-        if (prestigius.equals(prestigiousJourney)) {
-            checkPrestigius = true;
-        }else{
-            checkPrestigius = false;
-         message = message + "Kwota za pakiet prestiż wynosi: "+prestigius+", zamiast: "+prestigiousJourney+"\r\n";
+        if (!comfort.equals(fullComfort)) {
+            message = message + "Kwota za pakiet comfort wynosi: "+comfort+", zamiast: "+fullComfort+"\r\n";
         }
+
+        if (!prestigius.equals(prestigiousJourney)) {
+            message = message + "Kwota za pakiet prestiż wynosi: "+prestigius+", zamiast: "+prestigiousJourney+"\r\n";
+        }
+
+        
+
+//        if (standard.equals(standardProtection)) {
+////            checkStandard = true;
+//        } else {
+////            checkStandard = false;
+//        message = "Kwota za pakiet standard wynosi: "+standard+", zamiast: "+standardProtection+"\r\n";
+//         }
+//
+//        if (comfort.equals(fullComfort)) {
+////            checkComfort = true;
+//        } else {
+////            checkComfort = false;
+//         message = message + "Kwota za pakiet comfort wynosi: "+comfort+", zamiast: "+fullComfort+"\r\n";
+//        }
+//
+//        if (prestigius.equals(prestigiousJourney)) {
+////            checkPrestigius = true;
+//        }else{
+////            checkPrestigius = false;
+//         message = message + "Kwota za pakiet prestiż wynosi: "+prestigius+", zamiast: "+prestigiousJourney+"\r\n";
+//        }
 
 //        if (checkStandard && checkComfort && checkPrestigius) {
 //            return true;
