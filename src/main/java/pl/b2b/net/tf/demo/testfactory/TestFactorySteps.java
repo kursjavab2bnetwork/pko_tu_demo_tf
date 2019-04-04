@@ -66,7 +66,6 @@ public class TestFactorySteps extends BaseTF {
             status = false;
             line = line + ";Negatywny";
         }
-        Assert.assertTrue(status, "Podane kwoty nie zgadzają się. Zobacz log, aby sprawdzić szczegóły.");
 
 //        if (status) {
 //            line = line + ";Pozytywny";
@@ -76,6 +75,7 @@ public class TestFactorySteps extends BaseTF {
         resultList.add(line);
         TestFactoryUtils.log("" + message);
         TestFactoryUtils.log("" + resultList);
+        Assert.assertTrue(status, "Podane kwoty nie zgadzają się. Zobacz log, aby sprawdzić szczegóły.");
 
     }
 
