@@ -2,10 +2,7 @@ package pl.b2b.net.tf.demo.testfactory;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pl.b2b.net.tf.demo.GlobalDefinitions;
 import pl.b2b.net.tf.demo.driver.DriverSetup;
 import pl.b2b.net.tf.demo.pkotu.pageobject.actions.TravelOptionActions;
@@ -75,10 +72,14 @@ public class TestFactorySteps extends BaseTF {
         }
         resultList.add(line);
 
-        TestFactoryUtils.log("" + resultList);
+ //       TestFactoryUtils.log("" + resultList);
 
     }
 
+    @AfterMethod
+    public void saveLog(List<String> logList){
+        TestFactoryUtils.log("" + resultList);
+    }
 
     @Test
     @TestFactoryMethod(value = "Demo - weryfikacja stawek ubezpieczenia.", description = "Wykonanie zadania próbnego PoC. Samodzielnie wprowadź parametry.", group = "Demo")
