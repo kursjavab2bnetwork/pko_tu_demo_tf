@@ -17,10 +17,8 @@ import java.util.List;
 
 public class TestFactorySteps extends BaseTF {
     private TravelOptionActions travelOptionMethods;
-    String firstLine = "\r\nKierunek;Cel wyjzadu;Data wyjazdu;Data powrotu;Liczba dorosłych;Liczba dzieci;Cena standard;Cena standard oczekiwana;Cena comfort;Cena komfort oczekiwana;Cena presitż;Cena prestiż oczekiwana";
-
-    List<String> resultList = new ArrayList<>().add(firstLine);
-
+    List<String> resultList = new ArrayList<>();
+    Boolean firstIteration = true;
     @BeforeMethod
     public void setUp() {
         WebDriver driver = DriverSetup.getDriver();
@@ -57,8 +55,15 @@ public class TestFactorySteps extends BaseTF {
         prestigiousJourney = prestigiousJourney.replace(".", ",");
 
  //       TestFactoryUtils.log("\r\nKierunek;Cel wyjzadu;Data wyjazdu;Data powrotu;Liczba dorosłych;Liczba dzieci;Cena standard;Cena standard oczekiwana;Cena comfort;Cena komfort oczekiwana;Cena presitż;Cena prestiż oczekiwana");
-
-        String line = "\r\n" + direction + ";" + destination + ";" + dateOfDeparture + ";" + dateOfReturn + ";" + numberOfAdults + ";" + numberOfChildren + ";" + standardProtection + ";" + standard + ";" + fullComfort + ";" + comfort + ";" + prestigiousJourney + ";" + prestigius;
+        String line="";
+        if(firstIteration){
+            line = "\r\nKierunek;Cel wyjzadu;Data wyjazdu;Data powrotu;Liczba dorosłych;Liczba dzieci;Cena standard;Cena standard oczekiwana;Cena comfort;Cena komfort oczekiwana;Cena presitż;Cena prestiż oczekiwana"
+            +"\r\n" + direction + ";" + destination + ";" + dateOfDeparture + ";" + dateOfReturn + ";" + numberOfAdults + ";" + numberOfChildren + ";" + standardProtection + ";" + standard + ";" + fullComfort + ";" + comfort + ";" + prestigiousJourney + ";" + prestigius;
+            firstIteration = false;
+        }else{
+             line = "\r\n" + direction + ";" + destination + ";" + dateOfDeparture + ";" + dateOfReturn + ";" + numberOfAdults + ";" + numberOfChildren + ";" + standardProtection + ";" + standard + ";" + fullComfort + ";" + comfort + ";" + prestigiousJourney + ";" + prestigius;
+            firstIteration = false;
+        }
 
         Boolean status;
         String message = travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney);
