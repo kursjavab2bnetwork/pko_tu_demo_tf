@@ -61,15 +61,17 @@ public class TestFactorySteps extends BaseTF {
         String message = travelOptionMethods.checkAllPrices(standardProtection, fullComfort, prestigiousJourney);
         if (message.equals("")) {
             status = true;
-        }
-
-        Assert.assertTrue(status, "Podane kwoty nie zgadzają się. Zobacz log, aby sprawdzić szczegóły.");
-
-        if (status) {
             line = line + ";Pozytywny";
         } else {
             line = line + ";Negatywny";
         }
+        Assert.assertTrue(status, "Podane kwoty nie zgadzają się. Zobacz log, aby sprawdzić szczegóły.");
+
+//        if (status) {
+//            line = line + ";Pozytywny";
+//        } else {
+//            line = line + ";Negatywny";
+//        }
         resultList.add(line);
 
         TestFactoryUtils.log("" + resultList);
